@@ -11,3 +11,9 @@ h1 {
 a {
   color: #00B7FF;
 }
+
+img {
+  border: 1px;
+  border-style:solid;
+  border-color:#C0C0C0;
+}
