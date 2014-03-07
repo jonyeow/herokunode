@@ -2,8 +2,19 @@ extends layout
 
 block content
     h1
-      | See Wharton Travel 
-    map
+      | Recent Wharton Travel Locations 
+    div.row
+      div.col-md-8 
+        map
+      div.cold-md-4  
+        p.lead
+          | Recent Conversations:
+          ol#locations.small
+    p.lead.small
+      | <br> 
+      img(src='images/instagram.png' height='20px')
+      |  Latest #myWharton tags
+
     div.row
       div.col-md-8
         div#pics
