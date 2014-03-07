@@ -2,9 +2,8 @@
 var express = require("express");
 var routes = require('./routes');
 var logfmt = require("logfmt");
-var http = require('http');
+var https = require('https');
 var path = require('path');
-
 var monk = require('monk');
 
 var app = express();
@@ -26,13 +25,13 @@ app.use(express.bodyParser());
 
 app.get('/', routes.index);
 
-
 // GET /callback
 //   If param hub.callenge is present, renders its value
 //   This URL is used by suscription system of Instagram
 //   to check if the callback URL provided when creating the suscription
 //   is valid and works fine
 app.get('/callback', function(request, response){
+ console.log(request.param("hub.challenge"));
   if(request.param("hub.challenge") != null){
     response.send(request.param("hub.challenge"));
   } else {
