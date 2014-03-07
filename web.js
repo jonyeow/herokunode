@@ -31,7 +31,6 @@ app.get('/', routes.index);
 //   to check if the callback URL provided when creating the suscription
 //   is valid and works fine
 app.get('/callback', function(request, response){
- console.log(request.param("hub.challenge"));
   if(request.param("hub.challenge") != null){
     response.send(request.param("hub.challenge"));
   } else {
