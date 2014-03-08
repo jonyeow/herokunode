@@ -7,7 +7,7 @@ var locationnames = new Array();
 
 //Google Map Coords Philly
 var center = "39.952646,-75.179513&";
-var zoomsize = "zoom=1&";
+var zoomsize = "zoom=12&";
 var mapsize = "size=600x375&";
 var type="maptype=roadmap&";
 var markers = "markers=color:red%7C";
@@ -27,7 +27,8 @@ $.ajax({
             $("#pics").append(
               //"<img class=img-circle width=40px src='" + data.data[i].user.profile_picture + "'></img>" 
                 //+ "<small>" + data.data[i].user.username + "</small>" 
-               "<img height=100px width=100px src='" + data.data[i].images.thumbnail.url + "'></img>"
+               //"<img height=100px width=100px data-lightbox=instagram src='" + data.data[i].images.thumbnail.url + "'></img>"
+               "<a href='" +  data.data[i].images.standard_resolution.url + "' data-lightbox='instagram'><img height=100px width=100px data-lightbox=instagram src='" + data.data[i].images.thumbnail.url + "'></img></a>"
                 );
             if (data.data[i].location != null){
                   latitudes.push(data.data[i].location.latitude);
@@ -39,9 +40,9 @@ $.ajax({
         }
         for (i=0; i<latitudes.length; i++){
         coords.push(markers + latitudes[i] + "," + longitudes[i]);
-        console.log(coords[i]);
+        //console.log(coords[i]);
         coordinates += coords[i] + "&";
-        console.log(coordinates);
+        //console.log(coordinates);
         }
 
         for (i=0; i<5; i++){
@@ -49,7 +50,7 @@ $.ajax({
         }
 
         var url = "http://maps.googleapis.com/maps/api/staticmap?center=" + center + zoomsize + mapsize + type + coordinates + sensor;
-        console.log(url);
+        //console.log(url);
         $("map").after("<img src='" + url + "'></img>");
 
     }
