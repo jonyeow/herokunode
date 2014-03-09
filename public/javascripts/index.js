@@ -7,7 +7,7 @@ var locationnames = new Array();
 
 //Google Map Coords Philly
 var center = "39.952646,-75.179513&";
-var zoomsize = "zoom=12&";
+var zoomsize = "zoom=1&";
 var mapsize = "size=600x375&";
 var type="maptype=roadmap&";
 var markers = "markers=color:red%7C";
