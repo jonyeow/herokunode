@@ -116,10 +116,13 @@ $.ajax({
             $("#pics").append(
                "<a href='" +  
                data.data[i].images.standard_resolution.url + 
-               "' data-lightbox='instagram'><img height=100px width=100px data-lightbox=instagram src='" + 
-               data.data[i].images.thumbnail.url + 
+               "' data-lightbox='instagram' title='"+
+               data.data[i].caption.text +
+               "'><img height=100px width=100px data-lightbox=instagram src='" + 
+               data.data[i].images.thumbnail.url +
                "'></img></a>"
               );
+            console.log
 
             if (data.data[i].location!=null){
               entireData.push(data.data[i]);
